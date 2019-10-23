@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoServer", "EchoServer\EchoServer.csproj", "{8B705F2C-4B8A-445A-93EB-D64679440CB6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{28631B10-E8BD-4656-A2EC-84E3556277C9} = {28631B10-E8BD-4656-A2EC-84E3556277C9}
+		{E627054F-2679-4E6F-B79E-634593FBE87E} = {E627054F-2679-4E6F-B79E-634593FBE87E}
+		{2672BB99-CC27-453E-B79C-805AFB92D5DD} = {2672BB99-CC27-453E-B79C-805AFB92D5DD}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SuperSocket", "SuperSocket", "{D532C5C9-7555-4525-A4C6-84A395D2C666}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperSocket.Common", "..\Common\SuperSocket.Common.csproj", "{28631B10-E8BD-4656-A2EC-84E3556277C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperSocket.SocketBase", "..\SocketBase\SuperSocket.SocketBase.csproj", "{2672BB99-CC27-453E-B79C-805AFB92D5DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperSocket.SocketEngine", "..\SocketEngine\SuperSocket.SocketEngine.csproj", "{E627054F-2679-4E6F-B79E-634593FBE87E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B705F2C-4B8A-445A-93EB-D64679440CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B705F2C-4B8A-445A-93EB-D64679440CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B705F2C-4B8A-445A-93EB-D64679440CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B705F2C-4B8A-445A-93EB-D64679440CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28631B10-E8BD-4656-A2EC-84E3556277C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28631B10-E8BD-4656-A2EC-84E3556277C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28631B10-E8BD-4656-A2EC-84E3556277C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28631B10-E8BD-4656-A2EC-84E3556277C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2672BB99-CC27-453E-B79C-805AFB92D5DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2672BB99-CC27-453E-B79C-805AFB92D5DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2672BB99-CC27-453E-B79C-805AFB92D5DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2672BB99-CC27-453E-B79C-805AFB92D5DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E627054F-2679-4E6F-B79E-634593FBE87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E627054F-2679-4E6F-B79E-634593FBE87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E627054F-2679-4E6F-B79E-634593FBE87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E627054F-2679-4E6F-B79E-634593FBE87E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{28631B10-E8BD-4656-A2EC-84E3556277C9} = {D532C5C9-7555-4525-A4C6-84A395D2C666}
+		{2672BB99-CC27-453E-B79C-805AFB92D5DD} = {D532C5C9-7555-4525-A4C6-84A395D2C666}
+		{E627054F-2679-4E6F-B79E-634593FBE87E} = {D532C5C9-7555-4525-A4C6-84A395D2C666}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32464209-AE36-4E32-8D13-06D325C5F3FA}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\SuperSocket.Common.csproj" />
+    <ProjectReference Include="..\..\SocketBase\SuperSocket.SocketBase.csproj" />
+    <ProjectReference Include="..\..\SocketEngine\SuperSocket.SocketEngine.csproj" />
+  </ItemGroup>
+
+</Project>
