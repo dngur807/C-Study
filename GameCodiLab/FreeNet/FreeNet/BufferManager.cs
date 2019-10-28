@@ -5,10 +5,10 @@ using System.Text;
 
 namespace FreeNet
 {
-    // internal 접근 지시자 중 하나
-    // 내부적이라는 의미
-    // internal 접근자가 지정된 변수, 형식은 선언된 어셈블리 내에서만 접근 가능
-    // ex) TestLib에서 internal 선언한 변수는 TestLib내에서만 접근 가능
+    /// <summary>
+    /// SocketAsyncEventArgs 마다 버퍼가 하나씩 필요하다고 설명 드렸습니다.
+    /// 이 버퍼라는 것은 바이트 배열로 이루어진 메모리 덩어립니다.
+    /// </summary>
     internal class BufferManager
     {
         int m_numBytes;
@@ -16,7 +16,6 @@ namespace FreeNet
         Stack<int> m_freeIndexPool;
         int m_currentIndex;
         int m_bufferSize;
-
 
         public BufferManager(int totalBytes, int bufferSize)
         {
@@ -33,7 +32,7 @@ namespace FreeNet
 
         public bool SetBuffer(SocketAsyncEventArgs args)
         {
-            if (m_freeIndexPool.Count > 0 )
+            if (m_freeIndexPool.Count > 0)
             {
                 args.SetBuffer(m_buffer, m_freeIndexPool.Pop(), m_bufferSize);
             }
@@ -43,6 +42,7 @@ namespace FreeNet
                 {
                     return false;
                 }
+
                 args.SetBuffer(m_buffer, m_currentIndex, m_bufferSize);
                 m_currentIndex += m_bufferSize;
             }
@@ -53,6 +53,7 @@ namespace FreeNet
         {
             m_freeIndexPool.Push(args.Offset);
             args.SetBuffer(null, 0, 0);
+
         }
     }
 }

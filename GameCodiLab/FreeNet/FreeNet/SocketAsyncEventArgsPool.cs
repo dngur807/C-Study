@@ -21,11 +21,12 @@ namespace FreeNet
             {
                 m_pool.Push(item);
             }
+
         }
 
         public SocketAsyncEventArgs Pop()
-        { 
-            lock(m_pool)
+        {
+            lock (m_pool)
             {
                 return m_pool.Pop();
             }

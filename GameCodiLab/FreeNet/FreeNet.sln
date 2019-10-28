@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeNet", "FreeNet\FreeNet.csproj", "{6EF2C411-B8B4-4EB3-8802-DF7091974EC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSampleServer", "CSampleServer\CSampleServer.csproj", "{036CC78F-2B7D-4D92-B710-5AD18B0F701F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeNet", "FreeNet\FreeNet.csproj", "{023FC8EB-7172-46A9-A50D-D8F779F025FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6EF2C411-B8B4-4EB3-8802-DF7091974EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EF2C411-B8B4-4EB3-8802-DF7091974EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EF2C411-B8B4-4EB3-8802-DF7091974EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EF2C411-B8B4-4EB3-8802-DF7091974EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{036CC78F-2B7D-4D92-B710-5AD18B0F701F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{036CC78F-2B7D-4D92-B710-5AD18B0F701F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{036CC78F-2B7D-4D92-B710-5AD18B0F701F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{036CC78F-2B7D-4D92-B710-5AD18B0F701F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023FC8EB-7172-46A9-A50D-D8F779F025FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023FC8EB-7172-46A9-A50D-D8F779F025FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023FC8EB-7172-46A9-A50D-D8F779F025FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023FC8EB-7172-46A9-A50D-D8F779F025FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
