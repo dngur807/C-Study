@@ -11,15 +11,19 @@ namespace ChatServerSample
         bool IsThreadRunning = false;
         System.Threading.Thread ProcessThread = null;
 
+
+        UserManager UserMgr = new UserManager();
+
         // Receive 쪽에서 처리하지 않아도 Post에서 블럭킹 되지 않는다.
         // BufferBlock<T>(DataflowBlockOptions) 에서 DataflowBlockOptions의 BoundedCapacity로 버퍼 가능 수 지정
         // Boundcapacity 보다 크게 쌓이면 블럭킹 됩니다.
         BufferBlock<ServerPacketData> MsgBuffer = new BufferBlock<ServerPacketData>();
 
         List<Room> RoomList = new List<Room>();
-
+        Tuple<int, int> RoomNumberRange = new Tuple<int, int>(-1, -1);
         Dictionary<int, Action<ServerPacketData>> PacketHandlerMap = new Dictionary<int, Action<ServerPacketData>>();
-        PKHCommon CommonPacketHandler = new PKHCommon;
+        PKHCommon CommonPacketHandler = new PKHCommon();
+        PKHRoom RoomPacketHandler = new PKHRoom();
 
 
         // TODO MainServer를 인자로 주지말고, func를 인자로 넘겨주는 것이 좋다.
@@ -31,7 +35,6 @@ namespace ChatServerSample
             RoomList = roomList;
             var minRoomNum = RoomList[0].Number;
             var maxRoomNum = RoomList[0].Number * RoomList.Count() - 1;
-
             RoomNumberRange = new Tuple<int, int>(minRoomNum, maxRoomNum);
 
             RegistPacketHandler(mainServer);
@@ -49,7 +52,6 @@ namespace ChatServerSample
             RoomPacketHandler.Init(serverNetwork, UserMgr);
             RoomPacketHandler.SetRoomList(RoomList);
             RoomPacketHandler.RegistPacketHandler(PacketHandlerMap);
-
         }
 
         void Process()
@@ -70,7 +72,7 @@ namespace ChatServerSample
                 }
                 catch (Exception ex)
                 {
-                    IsThreadRunning.IfTrue(() => MainServer.MainLogger.Error(ex.ToString()));
+                    //IsThreadRunning.IfTrue(() => MainServer.MainLogger.Error(ex.ToString()));
                 }
             }
             
