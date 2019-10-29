@@ -5,8 +5,14 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.6.0" />
+    <PackageReference Include="MessagePack" Version="1.8.74" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,6 +20,12 @@
     <ProjectReference Include="..\CSBaseLib\CSBaseLib.csproj" />
     <ProjectReference Include="..\SocketBase\SuperSocket.SocketBase.csproj" />
     <ProjectReference Include="..\SocketEngine\SuperSocket.SocketEngine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

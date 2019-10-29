@@ -1,4 +1,5 @@
 ﻿using CSBaseLib;
+using MessagePack;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -44,6 +45,16 @@ namespace ChatServerSample
             packet.SessionID = sessionID;
             return packet;
         }
+    }
+
+    [MessagePackObject]
+    public class PKTInternalNtfRoomLeave
+    {
+        [Key(0)]
+        public int RoomNumber;
+
+        [Key(1)]
+        public string UserID;
     }
 
 }

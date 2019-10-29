@@ -6,11 +6,10 @@ namespace ChatServerSample
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             //  var serverOption = ParseCommandLine(args);
             var serverOption = new ChatServerOption();
             serverOption.Name = "ChatServer";
-            serverOption.Port = 32452;
+            serverOption.Port = 11211;
             serverOption.MaxConnectionNumber = 256;
             serverOption.MaxRequestLength = 1024;
             serverOption.ReceiveBufferSize = 16384;
@@ -26,8 +25,26 @@ namespace ChatServerSample
 
             var serverApp = new MainServer();
             serverApp.InitConfig(serverOption);
-
             serverApp.CreateStartServer();
+
+            MainServer.MainLogger.Info("Press q to shut down the server");
+            while (true)
+            {
+                System.Threading.Thread.Sleep(50);
+
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey(true);
+                    if (key.KeyChar == 'q')
+                    {
+                        Console.WriteLine("Server Terminate ~~~");
+                        serverApp.StopServer();
+                        break;
+                    }
+                }
+
+            }
+
         }
 
         static ChatServerOption ParseCommandLine(string[] args)

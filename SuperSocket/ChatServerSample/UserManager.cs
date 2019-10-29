@@ -16,7 +16,6 @@ namespace ChatServerSample
         {
             MaxUserCount = maxUserCount;
         }
-
         /// <summary>
         /// 유저 추가하는 함수로, 유저 꽉찬 경우나 중복 체크 후
         /// sessionIndex 키로 유저 등록
@@ -85,6 +84,25 @@ namespace ChatServerSample
             SessionID = sessionID;
             SessionIndex = sessionIndex;
             UserID = userID;
+        }
+        public string ID()
+        {
+            return UserID;
+        }
+
+        public bool IsConfirm(string netSessionID)
+        {
+            return SessionID == netSessionID;
+        }
+
+        public bool IsStateRoom()
+        {
+            return RoomNumber != -1;
+        }
+
+        public void EnteredRoom(int roomNumber)
+        {
+            RoomNumber = roomNumber;
         }
     }
 }
