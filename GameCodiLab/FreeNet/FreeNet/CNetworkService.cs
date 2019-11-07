@@ -192,6 +192,33 @@ namespace FreeNet
             }
         }
 
+        /// <summary>
+		/// todo:검토중...
+		/// 원격 서버에 접속 성공 했을 때 호출됩니다.
+		/// </summary>
+		/// <param name="socket"></param>
+		public void on_connect_completed(Socket socket, CUserToken token)
+        {
+            // SocketAsyncEventArgsPool에서 빼오지 않고 그때 그때 할당해서 사용한다.
+            // 풀은 서버에서 클라이언트와의 통신용으로만 쓰려고 만든것이기 때문이다.
+            // 클라이언트 입장에서 서버와 통신을 할 때는 접속한 서버당 두개의 EventArgs만 있으면 되기 때문에 그냥 new해서 쓴다.
+            // 서버간 연결에서도 마찬가지이다.
+            // 풀링처리를 하려면 c->s로 가는 별도의 풀을 만들어서 써야 한다.
+            SocketAsyncEventArgs receive_event_arg = new SocketAsyncEventArgs();
+            receive_event_arg.Completed += new EventHandler<SocketAsyncEventArgs>(receive_completed);
+            receive_event_arg.UserToken = token;
+            receive_event_arg.SetBuffer(new byte[1024], 0, 1024);
+
+            SocketAsyncEventArgs send_event_arg = new SocketAsyncEventArgs();
+            send_event_arg.Completed += new EventHandler<SocketAsyncEventArgs>(send_completed);
+            send_event_arg.UserToken = token;
+            send_event_arg.SetBuffer(new byte[1024], 0, 1024);
+
+            begin_receive(socket, receive_event_arg, send_event_arg);
+        }
+
+
+
         void send_completed(object sender , SocketAsyncEventArgs e)
         {
             CUserToken token = e.UserToken as CUserToken;

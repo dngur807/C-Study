@@ -205,5 +205,28 @@ namespace FreeNet
             this.receive_event_args = receive_event_args;
             this.send_event_args = send_event_args;
         }
+
+        public void disconnect()
+        {
+            // close the socket associated with the client
+            try
+            {
+                this.socket.Shutdown(SocketShutdown.Send);
+            }
+            // throws if client process has already closed
+            catch (Exception) { }
+            this.socket.Close();
+        }
+
+        public void start_keepalive()
+        {
+            System.Threading.Timer keepalive = new System.Threading.Timer((object e) =>
+            {
+                CPacket msg = CPacket.create(0);
+                msg.push(0);
+                send(msg);
+            }, null, 0, 3000);
+        }
+
     }
 }

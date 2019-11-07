@@ -6,15 +6,15 @@ using System.Text;
 namespace FreeNet
 {
     /// <summary>
-	/// byte[] 버퍼를 참조로 보관하여 pop_xxx 매소드 호출 순서대로 데이터 변환을 수행한다.
-	/// </summary>
-	public class CPacket
+    /// byte[] 버퍼를 참조로 보관하여 pop_xxx 매소드 호출 순서대로 데이터 변환을 수행한다.
+    /// </summary>
+    public class CPacket
     {
         public IPeer owner { get; private set; }
         public byte[] buffer { get; private set; }
         public int position { get; private set; }
 
-        Int16 protocol_id;
+        public Int16 protocol_id { get; private set; }
 
         public static CPacket create(Int16 protocol_id)
         {
@@ -49,6 +49,25 @@ namespace FreeNet
         public Int16 pop_protocol_id()
         {
             return pop_int16();
+        }
+
+        public void copy_to(CPacket target)
+        {
+            target.set_protocol(this.protocol_id);
+            target.overwrite(this.buffer, this.position);
+        }
+
+        public void overwrite(byte[] source, int position)
+        {
+            Array.Copy(source, this.buffer, source.Length);
+            this.position = position;
+        }
+
+        public byte pop_byte()
+        {
+            byte data = (byte)BitConverter.ToInt16(this.buffer, this.position);
+            this.position += sizeof(byte);
+            return data;
         }
 
         public Int16 pop_int16()
@@ -99,6 +118,20 @@ namespace FreeNet
         }
 
         public void push_int16(Int16 data)
+        {
+            byte[] temp_buffer = BitConverter.GetBytes(data);
+            temp_buffer.CopyTo(this.buffer, this.position);
+            this.position += temp_buffer.Length;
+        }
+
+        public void push(byte data)
+        {
+            byte[] temp_buffer = BitConverter.GetBytes(data);
+            temp_buffer.CopyTo(this.buffer, this.position);
+            this.position += sizeof(byte);
+        }
+
+        public void push(Int16 data)
         {
             byte[] temp_buffer = BitConverter.GetBytes(data);
             temp_buffer.CopyTo(this.buffer, this.position);

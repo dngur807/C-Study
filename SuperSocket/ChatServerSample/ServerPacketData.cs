@@ -48,4 +48,13 @@ namespace ChatServerSample
     }
 
     [MessagePackObject]
+    public class PKTInternalNtfRoomLeave
+    {
+        [Key(0)]
+        public int RoomNumber;
+
+        [Key(1)]
+        public string UserID;
+    }
+
 }

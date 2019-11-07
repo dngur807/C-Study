@@ -9,6 +9,9 @@ namespace ChatServerSample
     class ClientSession : AppSession<ClientSession, EFBinaryRequestInfo>
     {
         static public int MaxSessionCount { get; private set; } = 0;
+        /// <summary>
+        /// 스레드로 부터 안전한 정렬되지 않는 개체 컬렉션을 나타냅니다.
+        /// </summary>
         static ConcurrentBag<int> IndexPool = new ConcurrentBag<int>();
 
         public int SessionIndex { get; private set; } = -1;
