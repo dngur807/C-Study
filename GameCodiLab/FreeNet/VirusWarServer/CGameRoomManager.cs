@@ -29,6 +29,15 @@ namespace VirusWarGameServer
             this.rooms.Add(battleroom);
         }
 
+        public void remove_room(CGameRoom room)
+        {
+            room.destroy();
+            this.rooms.Remove(room);
+        }
+
+
+
+
 
     }
 }

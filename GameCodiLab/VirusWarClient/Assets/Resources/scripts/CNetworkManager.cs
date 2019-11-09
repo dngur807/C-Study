@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using FreeNet;
 using FreeNetUnity;
+using VirusWarGameServer;
 
 public class CNetworkManager : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class CNetworkManager : MonoBehaviour
             // 접속 성공.
             case NETWORK_EVENT.connected:
                 {
-                  //  CLogManager.log("on connected");
+                    CLogManager.log("on connected");
                     this.received_msg += "on connected\n";
 
                     GameObject.Find("MainTitle").GetComponent<CMainTitle>().on_connected();
@@ -57,11 +58,12 @@ public class CNetworkManager : MonoBehaviour
 
             // 연결 끊김.
             case NETWORK_EVENT.disconnected:
-              //  CLogManager.log("disconnected");
+                CLogManager.log("disconnected");
                 this.received_msg += "disconnected\n";
                 break;
         }
     }
+    
 
     void on_message(CPacket msg)
     {

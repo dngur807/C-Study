@@ -119,13 +119,13 @@ namespace VirusWarGameServer
         /// <returns></returns>
         public static bool can_play_more(List<short> board, CPlayer current_player, List<CPlayer> all_player)
         {
-            /*foreach (short cell in current_player.viruses)
+            foreach (short cell in current_player.viruses)
             {
                 if (CHelper.find_available_cells(cell, board, all_player).Count > 0)
                 {
                     return true;
                 }
-            }*/
+            }
             return false;
         }
 
@@ -141,10 +141,10 @@ namespace VirusWarGameServer
         {
             List<short> targets = find_neighbor_cells(basis_cell, total_cells, 2);
 
-        /*    players.ForEach(obj =>
+            players.ForEach(obj =>
             {
                 targets.RemoveAll(number => obj.viruses.Exists(cell => cell == number));
-            });*/
+            });
 
             return targets;
         }

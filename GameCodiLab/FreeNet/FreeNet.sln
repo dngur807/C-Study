@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoServer", "EchoServer\Ec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoClient", "EchoClient\EchoClient.csproj", "{F4A5D67F-6C94-4A36-93E3-817D7CA3CB03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirusWarGameServer", "VirusWarGameServer\VirusWarGameServer.csproj", "{11758A34-4CE8-425C-9651-FD05616947D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirusWarServer", "VirusWarServer\VirusWarServer.csproj", "{D0182BC6-F2C1-4C9B-B33B-6A5256463F1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{F4A5D67F-6C94-4A36-93E3-817D7CA3CB03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4A5D67F-6C94-4A36-93E3-817D7CA3CB03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4A5D67F-6C94-4A36-93E3-817D7CA3CB03}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11758A34-4CE8-425C-9651-FD05616947D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11758A34-4CE8-425C-9651-FD05616947D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11758A34-4CE8-425C-9651-FD05616947D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11758A34-4CE8-425C-9651-FD05616947D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0182BC6-F2C1-4C9B-B33B-6A5256463F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0182BC6-F2C1-4C9B-B33B-6A5256463F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0182BC6-F2C1-4C9B-B33B-6A5256463F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0182BC6-F2C1-4C9B-B33B-6A5256463F1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

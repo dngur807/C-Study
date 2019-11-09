@@ -34,6 +34,7 @@ public class CMainTitle : MonoBehaviour
 
         this.waiting_img = Resources.Load("images/waiting") as Texture;
 
+        this.user_state = USER_STATE.NOT_CONNECTED;
         enter();
     }
 
@@ -129,15 +130,15 @@ public class CMainTitle : MonoBehaviour
     {
         // 제일 먼저 프로토콜 아이디를 꺼내온다.
         PROTOCOL protocol_id = (PROTOCOL)msg.pop_protocol_id();
-
+        CLogManager.log("protocol_id : " + protocol_id);
         switch (protocol_id)
         {
             case PROTOCOL.START_LOADING:
                 {
-                    //byte player_index = msg.pop_byte();
+                    byte player_index = msg.pop_byte();
 
                     this.battle_room.gameObject.SetActive(true);
-                    //this.battle_room.start_loading(player_index);
+                    this.battle_room.start_loading(player_index);
                     gameObject.SetActive(false);
                 }
                 break;

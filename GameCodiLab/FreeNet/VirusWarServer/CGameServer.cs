@@ -16,11 +16,29 @@ namespace VirusWarGameServer
         AutoResetEvent loop_event;
 
 
+        //----------------------------------------------------------------
+        // 게임 로직 처리 관련 변수들.
+        //----------------------------------------------------------------
+        // 게임방을 관리하는 매니저.
+        public CGameRoomManager room_manager { get; private set; }
+
+        // 매칭 대기 리스트.
+        List<CGameUser> matching_waiting_users;
+        //----------------------------------------------------------------
+
+
+
+
+
         public CGameServer()
         {
             this.operation_lock = new object();
             this.loop_event = new AutoResetEvent(false);
             this.user_operations = new Queue<CPacket>();
+
+            // 게임 로직 관련.
+            this.room_manager = new CGameRoomManager();
+            this.matching_waiting_users = new List<CGameUser>();
 
             this.logic_thread = new Thread(gameloop);
             this.logic_thread.Start();
@@ -67,17 +85,19 @@ namespace VirusWarGameServer
         public void matching_req(CGameUser user)
         {
             // 매칭 대기 리스트에 추가.  
-            /*  this.matching_waiting_users.Add(user);
+              this.matching_waiting_users.Add(user);
 
               // 2명이 모이면 매칭 성공.  
               if (this.matching_waiting_users.Count == 2)
               {
-                  // 게임 방 생성.  
-                  this.room_manager.create_room(this.matching_waiting_users[0], this.matching_waiting_users[1]);
+                Console.WriteLine("방생성!!");
+
+                // 게임 방 생성.  
+                this.room_manager.create_room(this.matching_waiting_users[0], this.matching_waiting_users[1]);
 
                   // 매칭 대기 리스트 삭제.  
                   this.matching_waiting_users.Clear();
-              }*/
+              }
         }
 
 
